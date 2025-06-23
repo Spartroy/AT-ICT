@@ -18,8 +18,7 @@ import {
   CalendarDaysIcon,
   FolderIcon,
   ChevronLeftIcon,
-  ChevronRightIcon,
-  Bars3Icon
+  ChevronRightIcon
 } from '@heroicons/react/24/outline';
 
 // Import tab components
@@ -52,7 +51,7 @@ const TeacherDashboard = () => {
   const [showCreateQuiz, setShowCreateQuiz] = useState(false);
   const [currentTabPage, setCurrentTabPage] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   
   // Responsive tabs per page
   const [tabsPerPage, setTabsPerPage] = useState(4);
@@ -61,11 +60,9 @@ const TeacherDashboard = () => {
   useEffect(() => {
     const updateTabsPerPage = () => {
       if (window.innerWidth < 640) { // mobile
-        setTabsPerPage(3);
-      } else if (window.innerWidth < 1024) { // tablet
+        setTabsPerPage(2);
+      } else { // tablet and desktop - always 4 tabs per page for optimal distribution
         setTabsPerPage(4);
-      } else { // desktop
-        setTabsPerPage(5);
       }
     };
 
@@ -78,14 +75,14 @@ const TeacherDashboard = () => {
     {
       id: 'overview',
       name: 'Dashboard Overview',
-      shortName: 'Overview',
+      shortName: 'Dashboard',
       icon: ChartBarIcon,
       color: 'bg-[#CA133E]'
     },
     {
       id: 'registrations',
       name: 'New Registrations',
-      shortName: 'Registrations',
+      shortName: 'New Requests',
       icon: ClockIcon,
       color: 'bg-orange-600',
       badge: pendingRegistrationsCount
@@ -114,7 +111,7 @@ const TeacherDashboard = () => {
     {
       id: 'announcements',
       name: 'Announcements',
-      shortName: 'Announcements',
+      shortName: 'News',
       icon: MegaphoneIcon,
       color: 'bg-purple-600'
     },
@@ -234,7 +231,6 @@ const TeacherDashboard = () => {
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
-    setShowMobileMenu(false);
     // The useEffect will handle navigating to the correct page
   };
 
@@ -268,27 +264,22 @@ const TeacherDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1a1a] via-[#2a1a1a] to-[#3a1a1a]">
+    <div className="min-h-screen bg-gradient-to-br from-[#1a1a1a] via-[#2a1a1a] to-[#3a1a1a] overflow-x-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-[#0F0F0F] via-[#4A0D0D] to-[#C70039] shadow-xl border-b border-[#CA133E]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Welcome Message - Full width on top */}
-          <div className="border-b border-white/10 pb-3 sm:pb-4 pt-4">
+          <div className="">
             <div className="text-center sm:text-left">
-              <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white">
-                Welcome back, Ahmad Teacher!
-              </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 mt-1">
-                ICT Instructor • Teacher Portal • Manage your classes and students
-              </p>
+             
             </div>
           </div>
           
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 sm:py-6 gap-4">
             <div className="flex-1">
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
-                Dashboard
-              </h1>
+              <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white">
+                Welcome back, El Gran Maestro !
+              </h2>
             </div>
             
             {/* Desktop user info and logout */}
@@ -307,55 +298,43 @@ const TeacherDashboard = () => {
               </motion.button>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="sm:hidden">
-              <button
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-                className="p-3 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-all duration-300"
-              >
-                <Bars3Icon className="h-6 w-6" />
-              </button>
-            </div>
-
-            {/* Mobile user info (when menu is open) */}
-            {showMobileMenu && (
-              <div className="sm:hidden w-full bg-white/10 rounded-xl p-4 mt-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="h-10 w-10 rounded-xl bg-[#CA133E] flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-sm">AT</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-white">Ahmad Teacher</p>
-                      <p className="text-xs text-gray-300">ICT Instructor</p>
-                    </div>
+            {/* Mobile user info - always visible */}
+            <div className="sm:hidden w-full bg-white/10 rounded-xl p-3 mt-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="h-10 w-10 rounded-xl bg-[#CA133E] flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-sm">AT</span>
                   </div>
-                  <motion.button
-                    onClick={handleLogout}
-                    className="flex items-center space-x-2 px-4 py-3 bg-red-600/80 hover:bg-red-600 text-white rounded-xl transition-all duration-300 text-sm font-bold shadow-lg"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ArrowRightOnRectangleIcon className="h-5 w-5" />
-                    <span>Logout</span>
-                  </motion.button>
+                  <div>
+                    <p className="text-sm font-bold text-white">Ahmad Teacher</p>
+                    <p className="text-xs text-gray-300">ICT Instructor</p>
+                  </div>
                 </div>
+                <motion.button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 px-3 py-2 bg-red-600/80 hover:bg-red-600 text-white rounded-xl transition-all duration-300 text-sm font-bold shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowRightOnRectangleIcon className="h-4 w-4" />
+                  <span>Logout</span>
+                </motion.button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Navigation Tabs with Pagination */}
-      <div className="bg-[#2a1a1a]/50 backdrop-blur-sm border-b border-[#CA133E]/30">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="bg-[#2a1a1a]/50 backdrop-blur-sm border-b border-[#CA133E]/30 min-h-[90px] sm:min-h-[100px] lg:min-h-[110px] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-1 sm:px-4 lg:px-6">
           {/* Main Navigation */}
-          <div className="flex items-center py-3 sm:py-4 lg:py-6">
+          <div className="hidden sm:flex items-center py-4 sm:py-5 lg:py-6 gap-3 sm:gap-4 lg:gap-6">
             {/* Left Arrow - Always visible */}
             <motion.button
               onClick={handlePrevPage}
               disabled={currentTabPage === 0 || isTransitioning}
-              className={`flex mr-2 lg:mr-4 p-2 sm:p-3 lg:p-4 rounded-xl transition-all duration-300 ${currentTabPage === 0 || isTransitioning
+              className={`flex-shrink-0 p-2 sm:p-3 lg:p-4 rounded-xl transition-all duration-300 ${currentTabPage === 0 || isTransitioning
                 ? 'bg-gray-700/30 text-gray-500 cursor-not-allowed opacity-50'
                 : 'bg-[#CA133E]/20 text-[#CA133E] hover:bg-[#CA133E]/40 hover:scale-110'
                 }`}
@@ -366,8 +345,8 @@ const TeacherDashboard = () => {
             </motion.button>
 
             {/* Tabs Container */}
-            <div className="flex-1 flex justify-center overflow-hidden">
-              <div className="relative w-full max-w-5xl">
+            <div className="flex-1 flex justify-center">
+              <div className="relative w-full max-w-7xl">
                 <AnimatePresence mode="wait" custom={1}>
                   <motion.nav
                     key={currentTabPage}
@@ -377,7 +356,7 @@ const TeacherDashboard = () => {
                     animate="center"
                     exit="exit"
                     transition={tabPageTransition}
-                    className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 lg:gap-8 justify-center"
+                    className="flex flex-nowrap gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 justify-center items-center px-2"
                   >
                     {visibleTabs.map((tab, index) => {
                       const Icon = tab.icon;
@@ -388,16 +367,16 @@ const TeacherDashboard = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className={`flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 rounded-xl font-bold text-xs sm:text-sm lg:text-[12pt] whitespace-nowrap transition-all duration-300 shadow-lg flex-1 sm:flex-none justify-center sm:justify-start ${activeTab === tab.id
+                          className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-3 sm:py-3.5 md:py-4 lg:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap transition-all duration-300 shadow-lg justify-center min-w-0 relative ${activeTab === tab.id
                             ? 'bg-[#CA133E] text-white shadow-[#CA133E]/50 scale-105'
                             : 'text-gray-300 hover:text-white hover:bg-white/10'
                             }`}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-7 lg:w-7 flex-shrink-0" />
-                          <span className="text-center sm:text-left">
-                            <span className="sm:hidden text-xs leading-tight">
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 flex-shrink-0" />
+                          <span className="text-center">
+                            <span className="sm:hidden">
                               {tab.shortName}
                             </span>
                             <span className="hidden sm:inline lg:hidden">{tab.shortName}</span>
@@ -407,9 +386,9 @@ const TeacherDashboard = () => {
                             <motion.span
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
-                              className="bg-orange-500 text-white rounded-xl px-2 py-1 text-xs font-bold shadow-lg"
+                              className="bg-orange-500 text-white rounded-full px-1.5 py-0.5 text-xs font-bold shadow-lg ml-1 min-w-[20px] text-center absolute -top-1 -right-1"
                             >
-                              {tab.badge}
+                              {tab.badge > 99 ? '99+' : tab.badge}
                             </motion.span>
                           )}
                         </motion.button>
@@ -424,7 +403,7 @@ const TeacherDashboard = () => {
             <motion.button
               onClick={handleNextPage}
               disabled={currentTabPage === totalPages - 1 || isTransitioning}
-              className={`flex ml-2 lg:ml-4 p-2 sm:p-3 lg:p-4 rounded-xl transition-all duration-300 ${currentTabPage === totalPages - 1 || isTransitioning
+              className={`flex-shrink-0 p-2 sm:p-3 lg:p-4 rounded-xl transition-all duration-300 ${currentTabPage === totalPages - 1 || isTransitioning
                 ? 'bg-gray-700/30 text-gray-500 cursor-not-allowed opacity-50'
                 : 'bg-[#CA133E]/20 text-[#CA133E] hover:bg-[#CA133E]/40 hover:scale-110'
                 }`}
@@ -435,30 +414,35 @@ const TeacherDashboard = () => {
             </motion.button>
           </div>
 
+          {/* Mobile-only tab section title */}
+          <div className="sm:hidden py-2 px-2">
+            <h2 className="text-lg font-bold text-white text-center">Teacher Dashboard</h2>
+          </div>
+
           {/* Mobile Quick Tab Navigation */}
-          <div className="sm:hidden pb-3">
-            <div className="flex justify-center">
-              <div className="flex space-x-1 max-w-full overflow-x-auto">
+          <div className="sm:hidden pb-4 overflow-hidden">
+            <div className="w-full flex justify-center">
+              <div className="flex space-x-2 px-4 py-2 overflow-x-auto scrollbar-hide snap-x snap-mandatory justify-center">
                 {tabs.map((tab, index) => {
                   const IconComponent = tab.icon;
                   return (
                     <motion.button
                       key={tab.id}
                       onClick={() => handleTabClick(tab.id)}
-                      className={`flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 relative ${
+                      className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-[10px] transition-all duration-300 relative snap-center ${
                         activeTab === tab.id
                           ? 'bg-[#CA133E] text-white shadow-lg'
                           : 'bg-gray-700/30 text-gray-400 hover:bg-gray-600/50 hover:text-white'
                       }`}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       title={tab.name}
                     >
-                      <IconComponent className="h-5 w-5" />
+                      <IconComponent className="h-6 w-6" />
                       {/* Notification dot for mobile */}
                       {tab.badge > 0 && (
-                        <span className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full flex items-center justify-center">
-                          <span className="text-xs text-white font-bold">{tab.badge > 9 ? '9+' : tab.badge}</span>
+                        <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-orange-500 rounded-full flex items-center justify-center border border-[#2a1a1a]">
+                          <span className="text-[10px] text-white font-bold">{tab.badge > 9 ? '9+' : tab.badge}</span>
                         </span>
                       )}
                     </motion.button>
@@ -466,47 +450,27 @@ const TeacherDashboard = () => {
                 })}
               </div>
             </div>
+            
+            {/* Active tab name display */}
+            <div className="text-center mt-2 px-4">
+              <span className="text-white font-semibold text-sm">
+                {tabs.find(tab => tab.id === activeTab)?.name || ''}
+              </span>
+            </div>
           </div>
 
-          {/* Mobile Navigation Dropdown */}
-          {showMobileMenu && (
-            <div className="sm:hidden py-4">
-              <div className="grid grid-cols-1 gap-2">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => handleTabClick(tab.id)}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-sm transition-all duration-300 ${activeTab === tab.id
-                        ? 'bg-[#CA133E] text-white'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
-                        }`}
-                    >
-                      <Icon className="h-5 w-5" />
-                      <span>{tab.name}</span>
-                      {tab.badge > 0 && (
-                        <span className="bg-orange-500 text-white rounded-full px-2 py-1 text-xs font-bold ml-auto">
-                          {tab.badge}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+
 
           {/* Page Indicator for larger screens */}
           {totalPages > 1 && (
-            <div className="hidden sm:flex justify-center pb-2 sm:pb-4">
-              <div className="flex space-x-1 sm:space-x-2">
+            <div className="hidden sm:flex justify-center pb-3 sm:pb-4 lg:pb-5">
+              <div className="flex space-x-2 sm:space-x-3">
                 {Array.from({ length: totalPages }, (_, index) => (
                   <motion.button
                     key={index}
                     onClick={() => handlePageIndicatorClick(index)}
-                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentTabPage
-                      ? 'bg-[#CA133E] scale-125'
+                    className={`w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 rounded-full transition-all duration-300 ${index === currentTabPage
+                      ? 'bg-[#CA133E] scale-125 shadow-lg shadow-[#CA133E]/50'
                       : 'bg-gray-600 hover:bg-gray-500'
                       }`}
                     whileHover={{ scale: 1.2 }}

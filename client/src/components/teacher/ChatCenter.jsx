@@ -449,12 +449,12 @@ const ChatCenter = () => {
                           {/* Message Bubble */}
                           <div className={`relative px-3 sm:px-4 py-2 sm:py-3 shadow-md ${
                             isOwnMessage 
-                            ? 'bg-white/60 backdrop-blur-md border-2 border-red-500 text-black rounded-xl rounded-br-lg'
+                            ? 'bg-gray-700/80 text-white rounded-xl rounded-bl-lg border border-red-700'
                             : 'bg-gray-700/80 text-white rounded-xl rounded-bl-lg'
                           }`}>
                             {/* Sender Name */}
                             <p className={`text-xs font-semibold mb-1 ${
-                              isOwnMessage ? 'text-blue-200' : 'text-gray-400'
+                              isOwnMessage ? 'text-blue-200' : 'text-white-400'
                             }`}>
                               {isOwnMessage ? '' : `${message.sender.firstName} ${message.sender.lastName}`}
                             </p>
@@ -511,7 +511,7 @@ const ChatCenter = () => {
                             
                             {/* Timestamp */}
                             <p className={`text-xs mt-1 ${
-                              isOwnMessage ? 'text-blue-300' : 'text-gray-500'
+                              isOwnMessage ? 'text-gray-300' : 'text-gray-500'
                             }`}>
                               {formatTimestamp(message.createdAt)}
                             </p>

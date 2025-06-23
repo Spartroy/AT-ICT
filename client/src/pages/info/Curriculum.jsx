@@ -391,9 +391,7 @@ const Curriculum = () => {
                 </a>
               </div>
               
-              <p className="text-sm opacity-70 mt-6">
-                💯 30-day money-back guarantee • 🎯 A* success rate: 95%
-              </p>
+      
             </motion.div>
           </div>
         </section>

@@ -108,11 +108,11 @@ const Fees = () => {
       title: 'Flexible Payment Plans',
       description: 'Split payments available over 2-3 installments'
     },
-    {
-      icon: Video,
-      title: 'Money-Back Guarantee',
-      description: '30-day money-back guarantee if not satisfied'
-    },
+    // {
+    //   icon: Video,
+    //   title: 'Money-Back Guarantee',
+    //   description: '30-day money-back guarantee if not satisfied'
+    // },
     {
       icon: Users,
       title: 'Group Discounts',

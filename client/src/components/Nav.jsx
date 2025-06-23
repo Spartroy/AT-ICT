@@ -25,9 +25,12 @@ const Nav = () => {
         <div className="hidden md:flex space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10">
           <Link to="/about" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">About</Link>
           <Link to="/samples" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Free Samples</Link>
-          <Link to="/curriculum" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Curriculum</Link>
+            {/* <Link to="/curriculum" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Curriculum</Link> */}
+            <Link to="/contact" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Contact us</Link>
+          <Link to="/fees" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Pricing Plans</Link>
+          <Link to="/faq" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">FAQ</Link>
         
-        <Dropdown/>
+        {/* <Dropdown/> */}
 
         </div>
 

@@ -77,14 +77,6 @@ const About = () => {
 
   ];
 
-  const achievements = [
-    "🏆 Top-rated IGCSE ICT instructor across multiple platforms",
-    "📊 Consistently delivers 90%+ A*/A grades among students",
-    "🌍 Taught students from 50+ countries worldwide",
-    "💡 Developed unique interactive learning methodology",
-    "🎯 100% exam pass rate in the last 3 years",
-    "⭐ Rated 5/5 stars by 100+ students and parents"
-  ];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -100,14 +92,13 @@ const About = () => {
               variants={fadeInUp}
               className="text-center max-w-4xl mx-auto mt-10"
             >
-              <span className="text-[#CA133E] font-bold text-lg tracking-wide uppercase">Meet Your ICT Success Partner</span>
+              <span className="text-white font-bold text-[20pt] tracking-wide uppercase">Meet Your ICT Success Partner</span>
               <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
-                From <span className="text-[#CA133E]">Struggler</span> to
-                <span className="text-[#CA133E]"> A* Champion!</span>
+                From a <span className="text-[#CA133E]">Struggler</span> to
+                <span className="text-[#CA133E]"> A* Champion !</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                Discover how <span className="text-[#CA133E] font-semibold">100+ students</span> achieved their ICT dreams with our
-                <span className="text-[#CA133E] font-semibold"> proven method</span> <br />
+                ICT explained using our <span className="text-[#CA133E] font-semibold">proven method</span> <br />
                 That transforms confusion into confidence!
               </p>
 
@@ -150,14 +141,9 @@ const About = () => {
                       <img
                         src={PP}
                         alt="Ahmad Tamer Ali"
-                        className="w-full h-full object-cover rounded-2xl shadow-xl"
+                        className="w-full h-full object-cover rounded-xl shadow-[3px_3px_3px_3px_rgba(0,0,0,0.5)] border-4 border-red-600"
                       />
-                    </div>
-                    {/* Floating Achievement Badge */}
-                    <div className="absolute -top-4 -right-4 bg-[#CA133E] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                      <Star className="inline mr-1" size={16} />
-                      5★ Rated
-                    </div>
+                    </div>               
                   </div>
 
                   {/* Quick Credentials */}
@@ -199,7 +185,7 @@ const About = () => {
                       </p>
                     </div>
 
-                    <p>
+                    <p className='text-center'>
                       Since then, I've dedicated my career to make Learning
                       <div className="my-8">
                         <ul className="flex flex-row gap-10 justify-center pl-0 list-none">
@@ -216,7 +202,7 @@ const About = () => {
                       </div>
                     </p>
 
-                    <div className="bg-[#CA133E] bg-opacity-10 p-6 rounded-xl">
+                    <div className="bg-gray-200 p-6 rounded-xl">
                       <p className="font-bold text-[#CA133E] text-lg">My Promise to You:</p>
                       <p className="mt-2">
                         "I won't just teach you ICT concepts – I'll show you how to <em>think like a tech expert</em>,
@@ -326,10 +312,10 @@ const About = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="/register" className="bg-white text-[#CA133E] px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all">
-                      Start Your Journey 🚀
+                      Start Your Journey
                     </a>
                     <a href="/samples" className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-[#CA133E] transition-all">
-                      View Free Samples 📚
+                      Access Free Samples
                     </a>
                   </div>
                 </div>

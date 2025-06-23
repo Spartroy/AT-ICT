@@ -208,24 +208,8 @@ const Samples = () => {
               <h2 className="text-3xl font-bold mb-4">
                 Ready for the Full Course?
               </h2>
-              <p className="text-lg mb-8 opacity-90">
-                Get access to 200+ materials, personal support, and guaranteed A* success.
-              </p>
-              
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="bg-white bg-opacity-20 p-4 rounded-xl">
-                  <div className="text-2xl font-bold mb-1">200+</div>
-                  <div className="text-sm">Materials</div>
-                </div>
-                <div className="bg-white bg-opacity-20 p-4 rounded-xl">
-                  <div className="text-2xl font-bold mb-1">95%</div>
-                  <div className="text-sm">A*/A Rate</div>
-                </div>
-                  <div className="bg-white bg-opacity-20 p-4 rounded-xl">
-                  <div className="text-2xl font-bold mb-1">24/7</div>
-                  <div className="text-sm">Support</div>
-                </div>
-              </div>
+     
+           
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/register" className="bg-white text-[#CA133E] px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors">
