@@ -33,7 +33,7 @@ const Hero = () => {
         ].map((name, i) => (
           <motion.div
             key={i}
-            className="bg-[#CA133E] text-[16pt] font-bold rounded-xl w-full h-full opacity-30 flex items-center justify-center text-white text-sm cursor-pointer hover:opacity-100 hover:shadow-glow transition-all duration-300"
+            className="bg-[#CA133E] font-bold rounded-xl w-full h-full opacity-30 flex items-center justify-center text-white text-sm cursor-pointer hover:opacity-100 hover:shadow-glow transition-all duration-300 md:text-[16pt]"
             variants={blockVariants}
             initial="hidden"
             animate="visible"
@@ -82,13 +82,17 @@ const Hero = () => {
           className="mt-6 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
           variants={itemVariants}
         >
-          <button className="bg-[#CA133E] text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-lg font-semibold hover:bg-[#A01030] transition-all">
-            Register Now !
-          </button>
+          <a href="/register">
+            <button className="bg-[#CA133E] text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-lg font-semibold hover:bg-[#A01030] transition-all">
+              Register Now !
+            </button>
+          </a>
 
-          <button className="bg-transparent border border-white text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-lg font-semibold hover:bg-white hover:text-black transition-all">
-            Free Sample Materials
-          </button>
+          <a href="/contact-us">
+            <button className="bg-transparent border border-white text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-lg font-semibold hover:bg-white hover:text-black transition-all">
+              Free Sample Materials
+            </button>
+          </a>
         </motion.div>
       </motion.div>
     </div>

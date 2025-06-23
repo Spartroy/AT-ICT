@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
-import Logo2 from "../assets/Logo2.png";
-import Logo3 from "../assets/Logo3.png";
-
-import { List } from "lucide-react";
+import Dropdown from "./Dropdown";
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -24,38 +23,39 @@ const Nav = () => {
 
         {/* Left Navigation Tabs (Desktop) */}
         <div className="hidden md:flex space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10">
-          <a href="/About" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg">About</a>
-          <a href="#" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg">Material Samples</a>
-
-          <select name="cars" id="cars">
-            <option value="">Material Samples</option>
-            <option value="">Contact us</option>
-            <option value="">Fees</option>
-            <option value="">Brief Overview</option>
-          </select>
+          <Link to="/about" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">About</Link>
+          <Link to="/samples" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Free Samples</Link>
+          <Link to="/curriculum" className="text-white hover:text-gray-300 font-bold text-sm sm:text-base md:text-lg mt-4 ">Curriculum</Link>
+        
+        <Dropdown/>
 
         </div>
 
         {/* Center Logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <a href="/">
+          <Link to="/">
             {/* <img src={Logo2} alt="Logo" className="w-32 sm:w-32 md:w-40 h-auto" /> */}
 
             <img src={Logo} alt="Logo" className="w-32 sm:w-32 md:w-40 h-auto" />
 
-          </a>
+          </Link>
         </div>
 
         {/* Right Buttons (Desktop) */}
         <div className="hidden md:flex space-x-4">
-          <button className="bg-white text-black px-4 py-2 rounded-xl font-bold hover:bg-gray-200 transition">
+          <button 
+            onClick={() => navigate('/register')}
+            className="bg-white text-black px-4 py-2 rounded-xl font-bold hover:bg-gray-200 transition"
+          >
             Register
           </button>
-          <a href="/Signin">
-            <button className="bg-transparent border-2 border-white text-white px-4 py-2 rounded-xl font-bold hover:bg-white hover:text-black">
-              Login
-            </button>
-          </a>
+          
+          <button 
+            onClick={() => navigate('/signin')}
+            className="bg-transparent border-2 border-white text-white px-4 py-2 rounded-xl font-bold hover:bg-white hover:text-black transition"
+          >
+            Login
+          </button>
         </div>
       </div>
 
@@ -73,19 +73,26 @@ const Nav = () => {
               ✕
             </button>
 
-            <a href="#" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Home</a>
-            <a href="/About" className="text-white text-lg sm:text-xl font-bold">About</a>
-            <a href="#" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Sample Materials</a>
-            <a href="#" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Contact Us</a>
+            <Link to="/" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Home</Link>
+            <Link to="/about" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">About</Link>
+            <Link to="/samples" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Free Samples</Link>
+            <Link to="/curriculum" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Curriculum</Link>
+            <Link to="/success-stories" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Success Stories</Link>
+            <Link to="/contact" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Contact Us</Link>
 
-            <button className="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition">
+            <button 
+              onClick={() => { navigate('/register'); toggleNav(); }}
+              className="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition"
+            >
               Register
             </button>
-            <a href="/Signin">
-              <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-black">
-                Login
-              </button>
-            </a>
+            
+            <button 
+              onClick={() => { navigate('/signin'); toggleNav(); }}
+              className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-black transition"
+            >
+              Login
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
