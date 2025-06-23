@@ -1,5 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Info pages
 import Home from "./pages/info/Home";
@@ -42,6 +44,22 @@ function App() {
           <Route path="/student-dashboard" element={<StudentDashboard />} />
           <Route path="/parent-dashboard" element={<ParentDashboard />} />
         </Routes>
+        
+        {/* Toast Container for notifications */}
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          toastClassName="bg-gray-800 text-white"
+          progressClassName="bg-[#CA133E]"
+        />
       </div>
     </Router>
   );

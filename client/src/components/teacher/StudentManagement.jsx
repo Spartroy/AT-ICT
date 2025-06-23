@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { showOperationToast, showError } from '../../utils/toast';
 import {
   UserIcon,
   MagnifyingGlassIcon,
@@ -111,15 +112,15 @@ const StudentManagement = () => {
       });
 
       if (response.ok) {
-        alert('✅ Assignment feedback updated successfully!');
+        showOperationToast.saveSuccess('Assignment feedback');
         fetchStudentDetails(studentId);
       } else {
         const errorData = await response.json();
-        alert(`❌ Error: ${errorData.message}`);
+        showOperationToast.saveError('Assignment feedback', errorData.message);
       }
     } catch (error) {
       console.error('Error updating assignment feedback:', error);
-      alert('❌ Error updating assignment feedback');
+      showOperationToast.networkError();
     } finally {
       setFeedbackLoading(false);
     }
@@ -147,11 +148,11 @@ const StudentManagement = () => {
         document.body.removeChild(a);
       } else {
         const errorData = await response.json();
-        alert(`❌ Error downloading file: ${errorData.message}`);
+        showOperationToast.downloadError(errorData.message);
       }
     } catch (error) {
       console.error('Error downloading file:', error);
-      alert('❌ Error downloading file');
+      showOperationToast.downloadError('Failed to download file');
     }
   };
 
@@ -177,11 +178,11 @@ const StudentManagement = () => {
         document.body.removeChild(a);
       } else {
         const errorData = await response.json();
-        alert(`❌ Error downloading file: ${errorData.message}`);
+        showOperationToast.downloadError(errorData.message);
       }
     } catch (error) {
       console.error('Error downloading file:', error);
-      alert('❌ Error downloading file');
+      showOperationToast.downloadError('Failed to download file');
     }
   };
 
@@ -199,15 +200,15 @@ const StudentManagement = () => {
       });
 
       if (response.ok) {
-        alert('✅ Quiz feedback updated successfully!');
+        showOperationToast.saveSuccess('Quiz feedback');
         fetchStudentDetails(studentId);
       } else {
         const errorData = await response.json();
-        alert(`❌ Error: ${errorData.message}`);
+        showOperationToast.saveError('Quiz feedback', errorData.message);
       }
     } catch (error) {
       console.error('Error updating quiz feedback:', error);
-      alert('❌ Error updating quiz feedback');
+      showOperationToast.networkError();
     } finally {
       setFeedbackLoading(false);
     }

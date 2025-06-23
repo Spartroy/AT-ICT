@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { showOperationToast } from '../../utils/toast';
 import {
   AcademicCapIcon,
   UserGroupIcon,
@@ -503,7 +504,7 @@ const TeacherDashboard = () => {
         onClose={() => setShowCreateAssignment(false)}
         onSuccess={() => {
           // Refresh data if needed
-          console.log('Assignment created successfully');
+          showOperationToast.operationSuccess('Assignment creation');
         }}
       />
 
@@ -512,7 +513,7 @@ const TeacherDashboard = () => {
         onClose={() => setShowCreateQuiz(false)}
         onSuccess={() => {
           // Refresh data if needed
-          console.log('Quiz created successfully');
+          showOperationToast.operationSuccess('Quiz creation');
         }}
       />
     </div>

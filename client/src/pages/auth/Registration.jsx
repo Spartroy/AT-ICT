@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav';
+import { showOperationToast } from '../../utils/toast';
 import { ChevronLeft, ChevronRight, User, GraduationCap, Phone, Star, Flame, Heart } from 'lucide-react';
 
 const Registration = () => {
@@ -24,9 +25,7 @@ const Registration = () => {
     address: {
       street: '',
       city: '',
-      state: '',
-      country: '',
-      postalCode: ''
+      country: ''
     },
     
     // Student-specific fields
@@ -217,7 +216,7 @@ const Registration = () => {
       const data = await response.json();
 
       // Show success message
-      alert('🎉 Registration submitted successfully! Your application has been sent to our teachers for review. You will be able to login with your chosen password once your registration is approved. Please check your email for approval notification.');
+      showOperationToast.registrationSuccess();
       
       // Clear form and return to first step
       setFormData({
@@ -232,9 +231,7 @@ const Registration = () => {
         address: {
           street: '',
           city: '',
-          state: '',
-          country: '',
-          postalCode: ''
+          country: ''
         },
         year: '',
         session: '',
@@ -985,63 +982,7 @@ const Registration = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-3" style={{ color: '#D91743' }}>
-                    State/Province
-                  </label>
-                  <input
-                    type="text"
-                    name="address.state"
-                    value={formData.address.state}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyDown}
-                    className="w-full px-8 py-5 border-2 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
-                    style={{
-                      backgroundColor: '#0a0a0a',
-                      borderColor: '#2a2a2a',
-                      borderRadius: '2rem'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = '#D91743';
-                      e.target.style.boxShadow = '0 0 0 4px rgba(217, 23, 67, 0.2), 0 0 20px rgba(217, 23, 67, 0.4)';
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = '#2a2a2a';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                    placeholder="State or Province"
-                  />
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-3" style={{ color: '#D91743' }}>
-                    Postal Code
-                  </label>
-                  <input
-                    type="text"
-                    name="address.postalCode"
-                    value={formData.address.postalCode}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyDown}
-                    className="w-full px-8 py-5 border-2 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
-                    style={{
-                      backgroundColor: '#0a0a0a',
-                      borderColor: '#2a2a2a',
-                      borderRadius: '2rem'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = '#D91743';
-                      e.target.style.boxShadow = '0 0 0 4px rgba(217, 23, 67, 0.2), 0 0 20px rgba(217, 23, 67, 0.4)';
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = '#2a2a2a';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                    placeholder="Postal/ZIP code"
-                  />
-              </div>
-            </div>
             </motion.div>
           </motion.div>
         );

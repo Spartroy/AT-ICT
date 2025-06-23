@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Nav from '../../components/Nav';
+import { showOperationToast, showInfo } from '../../utils/toast';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const SignIn = () => {
     // Check for messages in URL params
     const messageParam = searchParams.get('message');
     if (messageParam === 'registration-pending') {
-      setMessage('Registration submitted successfully! Your account is pending approval. You will receive an email once approved.');
+      showOperationToast.registrationSuccess();
     }
 
     // Check if user is already logged in
@@ -98,7 +99,7 @@ const SignIn = () => {
         localStorage.setItem('user', JSON.stringify(data.data.user));
         
         // Show success message
-        setMessage('Login successful! Redirecting...');
+        showOperationToast.loginSuccess();
         
         // Redirect to appropriate dashboard based on role
         setTimeout(() => {
@@ -108,16 +109,16 @@ const SignIn = () => {
       } else {
         // Handle errors
         if (response.status === 423) {
-          setErrors({ general: 'Account is temporarily locked due to too many failed attempts. Please try again later.' });
+          showOperationToast.loginError('Account is temporarily locked due to too many failed attempts. Please try again later.');
         } else if (response.status === 403) {
-          setErrors({ general: data.message });
+          showOperationToast.loginError(data.message);
         } else {
-          setErrors({ general: data.message || 'Login failed. Please check your credentials.' });
+          showOperationToast.loginError(data.message || 'Login failed. Please check your credentials.');
         }
       }
     } catch (error) {
       console.error('Login error:', error);
-      setErrors({ general: 'Network error. Please check your connection and try again.' });
+      showOperationToast.networkError();
     } finally {
       setLoading(false);
     }
