@@ -77,7 +77,6 @@ const Nav = () => {
             <Link to="/about" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">About</Link>
             <Link to="/samples" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Free Samples</Link>
             <Link to="/curriculum" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Curriculum</Link>
-            <Link to="/success-stories" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Success Stories</Link>
             <Link to="/contact" onClick={toggleNav} className="text-white text-lg sm:text-xl font-bold">Contact Us</Link>
 
             <button 

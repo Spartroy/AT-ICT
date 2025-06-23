@@ -21,40 +21,69 @@ const About = () => {
   };
 
   const successStats = [
-    { number: "500+", label: "Students Taught", icon: Users },
-    { number: "95%", label: "A* Achievement Rate", icon: Trophy },
+    { number: "100+", label: "Students Taught", icon: Users },
+    { number: "90%", label: "(A* - A) Achievement Rate", icon: Trophy },
     { number: "5+", label: "Years Experience", icon: Award },
-    { number: "50+", label: "Countries Reached", icon: Target }
+    { number: "10+", label: "Countries Reached", icon: Target }
   ];
 
   const studentTestimonials = [
     {
-      name: "Sarah Ahmed",
-      grade: "A*",
-      country: "UAE",
-      text: "Ahmad made ICT so enjoyable! I went from struggling with databases to acing my IGCSE with an A*. His teaching style is incredible!"
-    },
-    {
-      name: "Omar Hassan",
-      grade: "A*",
+      name: "Razan Mohamed",
       country: "Egypt",
-      text: "The interactive notes and recorded sessions saved me! I could learn at my own pace and still get personal help when needed."
+      text: "Exam was 23 days ahead, and I had no idea what to do. i contacted Mr.Ahmad & we managed to compress all syllybus in no time, and surprisingly I got an A."
     },
     {
-      name: "Fatima Al-Zahra",
-      grade: "A",
-      country: "Saudi Arabia",
-      text: "From complete beginner to confident coder! Ahmad's patience and teaching methods are unmatched."
+      name: "Jana Shoukry",
+      country: "Egypt",
+      text: "Will definitely miss this course as someone that hates computer related stuff this course was definitely amazing experience and definitely learned many things from it using interactive notes was really helpful as someone who gets distracted easily when using normal notes and they helped me remeber many things in the exam w most helpful tutor i have had this session"
+    },
+    {
+      name: "Abdelrahman Mohamed",
+      country: "Egypt",
+      text: "Shokran awe ya mr aala taab hadretak w bgd ana mabsot ene da5lt el course maa hadretak we ene haset en rabena 5alany aaml retake lel ict aashan a2abl hadretak wna bgd msh aarf a2ol le hadretak eh aan taab w maghod hafretak fel notes wla fel practical bezat lola hadretak kan zamany bgd shelt el practical hadretak sa3detna kter"
+    },
+    {
+      name: "Omar Tarek",
+      country: "Egypt",
+      text: "شكرا على المجهود الجبار الاتبذل معانا ك طلاب و معايا انا ك شخص و مش بقول كدة و خلاص بس انت مش بس مستر انت اخ كبير ❤️👬"
+    },
+  
+    {
+      name: "Jana Ramy",
+      country: "Egypt",
+      text: "really thank you for your hard working ana makontsh atwk3 eny alm ict fyh esbo3en bas fa bgd 4okran gedn gedn"
+    },
+    {
+      name: "Ali Jamal",
+      country: "Egypt",
+      text: "The teacher was different from most teacher as he treated the students as friends not like students and put himself in the student point of view"
+    },
+    {
+      name: "Malak Farrag",
+      country: "UAE",
+      text: "Thanks for being an amazing teacher 🌹I really enjoyed the course and learned a lot from it"
+    },
+    {
+      name: "Nuria Amr",
+      country: "Spain",
+      text: "I benefited so much really and u did ur duty and way more thank you so much for all ur patience and hard work ❤️❤️"
+    },
+    {
+      name: "Nouran Mohamed",
+      country: "Egypt",
+      text: "It was great, each point was explained in details and in a simple way"
     }
+
   ];
 
   const achievements = [
     "🏆 Top-rated IGCSE ICT instructor across multiple platforms",
-    "📊 Consistently delivers 95%+ A*/A grades among students",
+    "📊 Consistently delivers 90%+ A*/A grades among students",
     "🌍 Taught students from 50+ countries worldwide",
     "💡 Developed unique interactive learning methodology",
     "🎯 100% exam pass rate in the last 3 years",
-    "⭐ Rated 5/5 stars by 500+ students and parents"
+    "⭐ Rated 5/5 stars by 100+ students and parents"
   ];
 
   return (
@@ -63,25 +92,25 @@ const About = () => {
         {/* Hero Section - Attention Grabber */}
         <section className="pt-24 pb-12 bg-gradient-to-br from-[#1a1a1a] via-[#2a1a1a] to-[#3a1a1a] text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNDQTEzM0UiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
-          
+
           <div className="container mx-auto px-4 relative">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
-              className="text-center max-w-4xl mx-auto"
+              className="text-center max-w-4xl mx-auto mt-10"
             >
               <span className="text-[#CA133E] font-bold text-lg tracking-wide uppercase">Meet Your ICT Success Partner</span>
               <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
-                From <span className="text-[#CA133E]">Struggling</span> to 
-                <br className="hidden md:block" />
+                From <span className="text-[#CA133E]">Struggler</span> to
                 <span className="text-[#CA133E]"> A* Champion!</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                Discover how <span className="text-[#CA133E] font-semibold">500+ students</span> achieved their ICT dreams with our 
-                <span className="text-[#CA133E] font-semibold"> proven method</span> that transforms confusion into confidence!
+                Discover how <span className="text-[#CA133E] font-semibold">100+ students</span> achieved their ICT dreams with our
+                <span className="text-[#CA133E] font-semibold"> proven method</span> <br />
+                That transforms confusion into confidence!
               </p>
-              
+
               {/* Success Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 {successStats.map((stat, index) => (
@@ -118,9 +147,9 @@ const About = () => {
                 <div className="text-center lg:text-left">
                   <div className="relative inline-block">
                     <div className="w-80 h-80 mx-auto lg:mx-0">
-                      <img 
-                        src={PP} 
-                        alt="Ahmad Tamer Ali" 
+                      <img
+                        src={PP}
+                        alt="Ahmad Tamer Ali"
                         className="w-full h-full object-cover rounded-2xl shadow-xl"
                       />
                     </div>
@@ -130,7 +159,7 @@ const About = () => {
                       5★ Rated
                     </div>
                   </div>
-                  
+
                   {/* Quick Credentials */}
                   <div className="mt-8 space-y-3">
                     <div className="flex items-center justify-center lg:justify-start">
@@ -152,32 +181,45 @@ const About = () => {
                 <div>
                   <span className="text-[#CA133E] font-bold text-lg">My Journey</span>
                   <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-6">
-                    Why I <span className="text-[#CA133E]">Transformed</span> ICT Education
+                    Why I <span className="text-[#CA133E]">Developed</span> AT-ICT ?
                   </h2>
-                  
+
                   <div className="space-y-6 text-gray-700 leading-relaxed">
                     <p className="text-lg">
-                      <strong>I remember my own IGCSE struggles...</strong> Sitting in class, completely lost with spreadsheets and databases. 
+                      <strong>I remember my own IGCSE struggles...</strong> <br />
+                      Sitting in class, completely lost with <span className='text-[#CA133E] font-bold'>Notes and classfied</span>. <br />
                       That frustration? I've felt it too. That's exactly why I created AT-ICT.
                     </p>
-                    
+
                     <div className="bg-gray-50 p-6 rounded-xl border-l-4 border-[#CA133E]">
                       <p className="font-semibold text-[#CA133E] mb-2">💡 The Breakthrough Moment:</p>
                       <p>
-                        "When I finally understood ICT through <em>real examples and hands-on practice</em>, 
+                        "When I finally understood ICT through <em>real examples and hands-on practice</em>,
                         I knew I had to share this approach with others. That was 5 years ago..."
                       </p>
                     </div>
-                    
+
                     <p>
-                      Since then, I've dedicated my career to making ICT <strong>simple, engaging, and actually fun!</strong> 
-                      My engineering background + teaching passion + student perspective = a teaching method that just works.
+                      Since then, I've dedicated my career to make Learning
+                      <div className="my-8">
+                        <ul className="flex flex-row gap-10 justify-center pl-0 list-none">
+                          <li>
+                            <strong className="text-[#CA133E] bg-[#FDE8EC] rounded-xl px-4 py-2">Simple</strong>
+                          </li>
+                          <li>
+                            <strong className="text-[#CA133E] bg-[#FDE8EC] rounded-xl px-4 py-2">Engaging</strong>
+                          </li>
+                          <li>
+                            <strong className="text-[#CA133E] bg-[#FDE8EC] rounded-xl px-4 py-2">Actually fun!</strong>
+                          </li>
+                        </ul>
+                      </div>
                     </p>
-                    
+
                     <div className="bg-[#CA133E] bg-opacity-10 p-6 rounded-xl">
                       <p className="font-bold text-[#CA133E] text-lg">My Promise to You:</p>
                       <p className="mt-2">
-                        "I won't just teach you ICT concepts – I'll show you how to <em>think like a tech expert</em>, 
+                        "I won't just teach you ICT concepts – I'll show you how to <em>think like a tech expert</em>,
                         solve problems confidently, and ace your exams with strategies that actually work in the real world."
                       </p>
                       <div className="mt-4 flex items-center">
@@ -196,7 +238,7 @@ const About = () => {
         </section>
 
         {/* Achievements Section */}
-        <section className="py-20 bg-gradient-to-r from-[#0F0F0F] via-[#4A0D0D] to-[#C70039]">
+        {/* <section className="py-20 bg-gradient-to-r from-[#0F0F0F] via-[#4A0D0D] to-[#C70039]">
           <div className="container mx-auto px-4">
             <motion.div
               initial="hidden"
@@ -205,12 +247,12 @@ const About = () => {
               className="max-w-4xl mx-auto text-center"
             >
               <h2 className="text-4xl font-bold text-white mb-4">
-                Why <span className="text-[#CA133E]">500+ Students</span> Choose AT-ICT
+                Why <span className="text-[#CA133E]">100+ Students</span> Choose AT-ICT
               </h2>
               <p className="text-xl text-gray-300 mb-12">
                 Real results from real students. Here's what makes us different:
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {achievements.map((achievement, index) => (
                   <motion.div
@@ -224,7 +266,7 @@ const About = () => {
               </div>
             </motion.div>
           </div>
-        </section>
+        </section> */}
 
         {/* Student Success Stories */}
         <section className="py-20 bg-gray-50">
@@ -241,7 +283,7 @@ const About = () => {
                   Real Students, <span className="text-[#CA133E]">Real Results</span>
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Don't just take our word for it - hear from students who transformed their ICT journey
+                  Don't just take our word for it - hear from students.
                 </p>
               </div>
 
@@ -261,7 +303,6 @@ const About = () => {
                       <div className="ml-4">
                         <h4 className="font-bold text-gray-800">{testimonial.name}</h4>
                         <div className="flex items-center">
-                          <span className="text-[#CA133E] font-bold mr-2">Grade: {testimonial.grade}</span>
                           <span className="text-gray-500 text-sm">• {testimonial.country}</span>
                         </div>
                       </div>
@@ -274,7 +315,7 @@ const About = () => {
                     <p className="text-gray-700 italic">"{testimonial.text}"</p>
                   </motion.div>
                 ))}
-                  </div>
+              </div>
 
               {/* Call to Action */}
               <div className="text-center mt-16">
@@ -317,29 +358,26 @@ const About = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
-                  { 
-                    icon: <Zap size={40} />, 
-                    title: "Interactive Learning", 
+                  {
+                    icon: <Zap size={40} />,
+                    title: "Interactive Learning",
                     description: "No boring lectures! Every concept comes alive through hands-on activities and real examples.",
-                    benefit: "85% faster comprehension"
                   },
-                  { 
-                    icon: <TrendingUp size={40} />, 
-                    title: "Proven Method", 
-                    description: "Our step-by-step approach has helped 500+ students achieve A*/A grades consistently.",
-                    benefit: "95% success rate"
-                  },
-                  { 
-                    icon: <Users size={40} />, 
-                    title: "Personal Support", 
+             
+                  {
+                    icon: <Users size={40} />,
+                    title: "Personal Support",
                     description: "Never feel stuck! Get personal guidance and answers to all your questions anytime.",
-                    benefit: "24/7 support available"
                   },
-                  { 
-                    icon: <Trophy size={40} />, 
-                    title: "Exam Mastery", 
+                  {
+                    icon: <Trophy size={40} />,
+                    title: "Exam Mastery",
                     description: "Learn insider tips and strategies that examiners look for to maximize your grades.",
-                    benefit: "A* grade guarantee"
+                  },
+                  {
+                    icon: <TrendingUp size={40} />,
+                    title: "Proven Method",
+                    description: "Our step-by-step approach has helped 100+ students achieve A*/A grades consistently.",
                   },
                 ].map((item, index) => (
                   <motion.div
@@ -348,12 +386,10 @@ const About = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
                   >
-                    <div className="text-[#CA133E] mb-6">{item.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-800">{item.title}</h3>
-                    <p className="text-gray-600 mb-4">{item.description}</p>
-                    <div className="bg-[#CA133E] bg-opacity-10 px-3 py-1 rounded-full text-sm font-semibold text-[#CA133E] inline-block">
-                      {item.benefit}
-                    </div>
+                    <div className="text-[#CA133E] mb-6 flex justify-center">{item.icon}</div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-800 text-center">{item.title}</h3>
+                    <p className="text-gray-600 mb-4 text-center">{item.description}</p>
+                
                   </motion.div>
                 ))}
               </div>

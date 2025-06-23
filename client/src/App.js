@@ -9,7 +9,6 @@ import Curriculum from "./pages/info/Curriculum";
 import FAQ from "./pages/info/FAQ";
 import Fees from "./pages/info/Fees";
 import Samples from "./pages/info/Samples";
-import SuccessStories from "./pages/info/SuccessStories";
 
 // Auth pages
 import SignIn from "./pages/auth/SignIn";
@@ -33,7 +32,6 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/fees" element={<Fees />} />
           <Route path="/samples" element={<Samples />} />
-          <Route path="/success-stories" element={<SuccessStories />} />
           
           {/* Auth Routes */}
           <Route path="/signin" element={<SignIn />} />

@@ -27,10 +27,8 @@ const Dropdown = () => {
         onChange={handleSelectChange}
         className="w-full bg-[#2a1a1a] border-2 border-[#CA133E] text-white py-3 px-10 rounded-xl appearance-none focus:outline-none focus:border-[#A01030] cursor-pointer transition-all duration-300 hover:bg-[#3a1a1a]"
       >
-        <option value="">More Options</option>
         <option value="/contact">Contact us</option>
         <option value="/fees">Pricing Plans</option>
-        <option value="/success-stories">Success Stories</option>
         <option value="/faq">FAQ</option>
       </select>
 
